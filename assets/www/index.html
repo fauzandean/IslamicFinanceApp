@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset=utf-8 />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.3.2.js"></script>
+<script src="js/cordova26.js"></script>
+
+
+<script type='text/javascript'>
+
+						
+$(function(){
+    var menuStatus=false;
+     
+    $("a.showMenu").click(function(){
+        if(menuStatus != true){             
+        $(".ui-page-active").animate({
+            marginLeft: "165px",
+          }, 300, function(){menuStatus = true});
+          return false;
+          } else {
+            $(".ui-page-active").animate({
+            marginLeft: "0px",
+          }, 300, function(){menuStatus = false});
+            return false;
+          }
+    });
+ 
+ /*   $('.pages').live("swipeleft", function(){
+        if (menuStatus){    
+        $(".ui-page-active").animate({
+            marginLeft: "0px",
+          }, 300, function(){menuStatus = false});
+          }
+    });
+     
+    $('.pages').live("swiperight", function(){
+        if (!menuStatus){   
+        $(".ui-page-active").animate({
+            marginLeft: "165px",
+          }, 300, function(){menuStatus = true});
+          }
+    });   */
+     
+    
+	
+	
+	$( "#mypanel" ).panel( "open" , optionsHash );
+         
+});
+</script>
+
+
+<title>My First jQuery Mobile Application</title>
+
+<style>
+.cont, h3, p, a, .linkstyle{
+	font-size:11px;
+	font-family:myFirstFont;
+	line-height:150%;
+}
+
+@font-face
+{
+	font-family: myFirstFont;
+	src: url('Fonts/Roboto/Roboto-Regular.ttf'),url('Sansation_Light.eot'); /* IE9 */
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="page1" data-role="page" data-theme=''>
+
+	<div class="header" data-role="header" data-theme='a'>
+		<a href="#about" data-role="button" data-corners="false" data-theme=''>About</a>
+        <h5>iFinance</h5>
+    </div>
+
+    <div data-role="content" class="content" id="cont" data-theme=''>
+		<ul data-role="listview" data-theme=''>
+		<li><a data-theme="" data-transition="none" href="basic.html" rel="external"> Introduction </a> </li>
+		<li><a data-theme="" data-transition="none" href="contracts.html" rel="external"> Contracts </a> </li>
+		<li><a data-theme="" data-transition="none" href="glossary.html" rel="external"> Glossary </a> </li>
+		</ul>
+    </div>
+	
+</div>
+
+
+<div id="about" data-role="page">
+	<div data-role="header">
+		<a class="linkstyle" href="" data-rel="back">Go back</a>
+		<h3>About</h3>
+	</div>
+
+	<div data-role="content">
+		<div data-role="fieldcontain">
+				<p>Hi, this is application has information about the basics of Islamic Finance. The material in this app should only be taken as
+				a simple introduction. If you find any mistakes please feel to send me a mail so it be corrected</p>
+				<a href=mailto:fauzanbuhardeen@gmail.com data-role="button">Send</a>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

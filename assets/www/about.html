@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset=utf-8 />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.3.2.js"></script>
+<script src="js/cordova26.js"></script>
+
+
+<script type='text/javascript'>
+$(function(){
+    var menuStatus=false;
+     
+    $("a.showMenu").click(function(){
+        if(menuStatus != true){             
+        $(".ui-page-active").animate({
+            marginLeft: "165px",
+          }, 300, function(){menuStatus = true});
+          return false;
+          } else {
+            $(".ui-page-active").animate({
+            marginLeft: "0px",
+          }, 300, function(){menuStatus = false});
+            return false;
+          }
+    });
+ 
+	$( "#mypanel" ).panel( "open" , optionsHash );
+         
+});
+</script>
+
+<title>My First jQuery Mobile Application</title>
+
+<style>
+.cont, h3, p, a, .linkstyle{
+	font-size:11px;
+	font-family:myFirstFont;
+	line-height:150%;
+}
+
+@font-face
+{
+	font-family: myFirstFont;
+	src: url('Fonts/Roboto/Roboto-Regular.ttf'),url('Sansation_Light.eot'); /* IE9 */
+}
+</style>
+</head>
+
+<body>
+
+<div id="page1" data-role="page" data-theme=''>
+	<div data-role="panel" id="mypanel" data-theme=''>
+		<a href="#about" data-role="button" data-corners="false" data-theme='a'>About</a>
+		<a href="#email" data-role="button" data-theme=''>Report</a>
+		<a href="#my-header" data-role="button"  data-theme='' data-rel="close">Close panel</a>
+	</div>
+
+	<div class="header" data-role="header" data-theme='a'>
+		<a href="#mypanel" data-icon="delete">Cancel</a>
+        <h5>iFinance</h5>
+    </div>
+
+    <div data-role="content" class="content" id="cont" data-theme=''>
+		<a data-theme="" class="linkstyle" href="basic.html" rel="external" data-role="button"> The Basics </a>
+		<a data-theme="" class="linkstyle" href="contracts.html" rel="external" data-role="button"> Contracts </a>
+		<a data-theme="" class="linkstyle" href="glossary.html" rel="external" data-role="button"> Glossary </a>
+    </div>
+</div>
+
+<div id="email" data-role="page">
+	<div data-role="header">
+		<a class="linkstyle" href="" data-rel="back">Go back</a>
+		<h3>Send Email</h3>
+	</div>
+
+	<div data-role="content">
+		<div data-role="fieldcontain">
+			<label for="textarea">Textarea:</label>
+			<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+			<a href=mailto:fauzanbuhardeen@fusionnetwork.lk data-role="button">Send</a>
+		</div>
+	</div>
+</div>
+
+<div id="about" data-role="page">
+	<div data-role="header">
+		<a class="linkstyle" href="" data-rel="back">Go back</a>
+		<h3>About</h3>
+	</div>
+
+	<div data-role="content">
+		<div data-role="fieldcontain">
+			<p>Hi, this is application has information about the basics of Islamic Finance. The material in this app should only be taken as
+			a simple introduction. If you find any mistakes please feel to send me a mail so it be corrected</p>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
